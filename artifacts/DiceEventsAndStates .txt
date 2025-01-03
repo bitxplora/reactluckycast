@@ -1,0 +1,24 @@
+Dice Events:
+click to freeze
+
+Dice State:
+When unfreeze: background-color is white.
+When freeze: background-color is green.
+
+
+Main Events:
+Click to roll
+Won - All dice frozen
+Confetti rains
+Click to start new game
+
+
+
+
+Main State:
+Set of dice
+New set of numbers
+Won - All dice frozen
+Button turns to New Game from Roll
+Focus on the New Game button
+New Game set
