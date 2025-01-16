@@ -6,6 +6,7 @@
   font-size: 2rem;
   font-weight: 1rem;
   border-radius: 8px;
+  position: relative;
 }
 
 .freezed {
@@ -19,4 +20,3 @@
   background-color: #000000;
   border-radius: 50%;
 }
-
