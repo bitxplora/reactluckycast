@@ -27,3 +27,8 @@
   align-items: center;
 }
 
+.dice-2 {
+  display: flex;
+  place-content: center space-around ;
+  align-items: center;
+}
