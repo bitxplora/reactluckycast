@@ -48,3 +48,13 @@
 .dice-3 div:nth-child(3) {
   grid-area: 3 / 3 / 4 / 4;
 }
+
+.dice-4 {
+  display: grid;
+  padding: 6px;
+  grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+  place-content: center;
+  place-items: center;
+  gap: 5px;
+}
+
