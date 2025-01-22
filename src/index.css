@@ -32,3 +32,18 @@
   place-content: center space-around ;
   align-items: center;
 }
+
+.dice-3 {
+  display: grid;
+  padding: 6px;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  place-items: center;
+}
+
+.dice-3 div:nth-child(2) {
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.dice-3 div:nth-child(3) {
+  grid-area: 3 / 3 / 4 / 4;
+}
