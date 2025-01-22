@@ -29,7 +29,7 @@
 
 .dice-2 {
   display: flex;
-  ter space-around ;
+  place-content: center space-around ;
   align-items: center;
 }
 
