@@ -29,7 +29,7 @@
 
 .dice-2 {
   display: flex;
-  place-content: center space-around ;
+  ter space-around ;
   align-items: center;
 }
 
@@ -82,4 +82,11 @@
   grid-area: 3 / 3 / 4 / 4;
 }
 
-
+.dice-6 {
+  display: grid;
+  padding: 6px;
+  grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+  place-content: center;
+  place-items: center;
+  gap: 4px;
+}
