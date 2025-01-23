@@ -90,3 +90,11 @@
   place-items: center;
   gap: 4px;
 }
+
+.luckycast {
+  width: 260px;
+  height: 110px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
