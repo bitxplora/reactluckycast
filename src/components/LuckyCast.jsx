@@ -15,7 +15,7 @@ export default function LuckyCast() {
 
   return (
     <div className="luckycast">
-      {Dice} 
+      {Dice}
     </div>
   );
 }
