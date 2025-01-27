@@ -28,9 +28,15 @@
 }
 
 .dice-2 {
-  display: flex;
-  place-content: center space-around ;
-  align-items: center;
+  display: grid;
+  padding: 6px;
+  grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+  place-content: center;
+  place-items: center;
+}
+
+.dice-2 div:nth-child(2) {
+  grid-area: 2 / 2 / 3 / 3;
 }
 
 .dice-3 {
