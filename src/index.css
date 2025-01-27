@@ -101,8 +101,9 @@
   width: 300px;
   height: 120px;
   display: flex;
+  place-content: center;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 
 #root {
