@@ -9,13 +9,26 @@ export default function LuckyCast() {
     return Math.ceil(Math.random() * 6);
   }
 
-  const Dice = Array.from(Array(10), () => {
-    return <Die key={nanoid()} value={diceNumber()} isFreezed={false} />
+  const data = Array.from(Array(10), ()=> {
+    return {
+      id: nanoid(),
+      isFreezed: false,
+      value: diceNumber(),
+    }
+  })
+
+  const [ diceData, setDiceData ] = useState(data);
+
+  const Dice = Array.from(diceData, (data) => {
+    return <Die key={data.id} value={data.value} isFreezed={data.isFreezed} />
   })
 
   return (
-    <div className="luckycast">
-      {Dice}
+    <div>
+      <div className="luckycast">
+        {Dice}
+      </div>
+      <button>Roll</button>
     </div>
   );
 }
