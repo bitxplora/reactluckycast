@@ -23,14 +23,23 @@ export default function LuckyCast() {
   }
 
   const [ diceData, setDiceData ] = useState(dataFactory());
-  // console.log(diceData);
 
   const Dice = Array.from(diceData, (data) => {
     return <Die key={data.id} value={data.value} isFreezed={data.isFreezed} />
   })
 
   function onRoll() {
-    setIsRoll(!isRoll);
+    console.log(diceData);
+    let newDiceData = diceData.map((newData) => {
+      if (newData.isFreezed) {
+        return { ...newData }
+      } else {
+        return { ...newData, [newData.id]: nanoid(), [newData.value]: diceNumber()  }
+      }
+    });
+    console.log(newDiceData);
+    setDiceData(newDiceData);
+    console.log(diceData);
   }
 
   return (
