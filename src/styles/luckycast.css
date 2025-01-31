@@ -1,0 +1,23 @@
+.luckycastcontainer {
+  width: 300px;
+}
+
+.narration {
+  color: #4A4E74;
+  font-family: inter;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.messagecontainer {
+  display: grid;
+  place-content: center;
+  place-items: center;
+}
+
+.messagecontainer p:first-child {
+  font-size:  46px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
