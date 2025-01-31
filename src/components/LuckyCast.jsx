@@ -6,7 +6,10 @@ import { nanoid } from "nanoid";
 export default function LuckyCast() {
 
   const [ isRoll, setIsRoll ] = useState(true);
-  // const buttonRef = useRef(null);
+
+  // This holds the value of the first freeze button.
+  // It can only be changed by starting new game.
+  const freezeRef = useRef(null);
 
   function diceNumber() {
     return Math.ceil(Math.random() * 6);
@@ -39,17 +42,29 @@ export default function LuckyCast() {
     setDiceData(newDiceData);
   }
 
+  function freezeCheck(value) {
+    if (freezeRef.current === null) {
+      freezeRef.current = value;
+      return true;
+    } else if (freezeRef.current === value) {
+      return true;
+    } return false;
+  }
+
   function freeze(id) {
     let freezedData = diceData.map((data) => {
       if (data.id === id && data.isFreezed === false) {
-        return { ...data, isFreezed: true }
+        if (freezeCheck(data.value)) {
+          return { ...data, isFreezed: true }
+        } else {
+          return data;
+        }
       } else {
         return data;
       }
     });
     setDiceData(freezedData);
   }
-
 
   return (
     <div>
