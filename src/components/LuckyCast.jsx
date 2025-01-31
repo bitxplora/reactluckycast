@@ -67,7 +67,15 @@ export default function LuckyCast() {
   }
 
   return (
-    <div>
+    <div className="luckycastcontainer">
+      <div>
+        <p>LuckyCast</p>
+        <p>
+           Choose a number and click on the dice that show that value to freeze it.
+           Then roll and freeze until all the dice show the same number.
+           Click each die to freeze it at its current value between rolls.
+        </p>
+      </div>
       <div className="luckycast">
         {Dice}
       </div>
