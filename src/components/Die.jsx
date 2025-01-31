@@ -1,5 +1,3 @@
-import { nanoid } from 'nanoid';
-
 export default function Die(props) {
 
   function dieFactory(numberOfDots) {
@@ -9,7 +7,7 @@ export default function Die(props) {
   }
 
   return (
-    <button className={`die dice-${props.value} ${props.isFreezed ? 'freezed' : ''} `}>
+    <button onClick={() => props.freeze(props.id)} className={`die dice-${props.value} ${props.isFreezed ? 'freezed' : ''} `}>
       {dieFactory(props.value)}
     </button>
   );
