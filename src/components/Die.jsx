@@ -1,3 +1,5 @@
+import { nanoid } from 'nanoid';
+
 export default function Die(props) {
 
   function dieFactory(numberOfDots) {
