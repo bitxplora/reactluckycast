@@ -1,7 +1,8 @@
 import { useState, useRef } from 'react';
+import { nanoid } from "nanoid";
 
 import Die from "./Die";
-import { nanoid } from "nanoid";
+import "../styles/luckycast.css";
 
 export default function LuckyCast() {
 
@@ -68,9 +69,9 @@ export default function LuckyCast() {
 
   return (
     <div className="luckycastcontainer">
-      <div>
+      <div className="messagecontainer">
         <p>LuckyCast</p>
-        <p>
+        <p className="narration">
            Choose a number and click on the dice that show that value to freeze it.
            Then roll and freeze until all the dice show the same number.
            Click each die to freeze it at its current value between rolls.
