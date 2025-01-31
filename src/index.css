@@ -118,7 +118,13 @@
 }
 
 .rollGame {
-  width: 60px;
-  height: 40px;
+  margin-top: 40px;
+  width: 120px;
+  height: 50px;
+  background-color: #5035FF;
+  border-radius: 8px;
+  color: #f5f9f5;
+  font-size: 20px;
+  font-weight: 600;
 }
 
