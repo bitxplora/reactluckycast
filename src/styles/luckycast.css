@@ -1,5 +1,9 @@
 .luckycastcontainer {
   width: 300px;
+  display: grid;
+  place-content: center;
+  place-items: center;
+  row-gap: 5px;
 }
 
 .narration {
@@ -7,6 +11,7 @@
   font-family: inter;
   font-weight: 400;
   line-height: 20px;
+  text-align: justify;
 }
 
 .messagecontainer {
