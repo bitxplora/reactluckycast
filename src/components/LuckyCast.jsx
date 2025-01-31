@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import Die from "./Die";
 import { nanoid } from "nanoid";
 
 export default function LuckyCast() {
 
-  // let isRoll = true;
   const [ isRoll, setIsRoll ] = useState(true);
+  // const buttonRef = useRef(null);
 
   function diceNumber() {
     return Math.ceil(Math.random() * 6);
@@ -25,22 +25,31 @@ export default function LuckyCast() {
   const [ diceData, setDiceData ] = useState(dataFactory());
 
   const Dice = Array.from(diceData, (data) => {
-    return <Die key={data.id} value={data.value} isFreezed={data.isFreezed} />
+    return <Die key={data.id} id={data.id} value={data.value} isFreezed={data.isFreezed} freeze={freeze} />
   })
 
   function onRoll() {
-    console.log(diceData);
     let newDiceData = diceData.map((newData) => {
       if (newData.isFreezed) {
         return { ...newData }
       } else {
-        return { ...newData, [newData.id]: nanoid(), [newData.value]: diceNumber()  }
+        return { ...newData, id: nanoid(), value: diceNumber()  }
       }
     });
-    console.log(newDiceData);
     setDiceData(newDiceData);
-    console.log(diceData);
   }
+
+  function freeze(id) {
+    let freezedData = diceData.map((data) => {
+      if (data.id === id && data.isFreezed === false) {
+        return { ...data, isFreezed: true }
+      } else {
+        return data;
+      }
+    });
+    setDiceData(freezedData);
+  }
+
 
   return (
     <div>
