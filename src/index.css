@@ -10,8 +10,11 @@
 }
 
 .freezed {
-  background-color: green;
-  color: #ffffff;
+  background-color: #59E391;
+}
+
+.freezed .dot {
+  background-color: #f5f5f5;
 }
 
 .dot {
@@ -114,4 +117,8 @@
   align-items: center;
 }
 
+.rollGame {
+  width: 60px;
+  height: 40px;
+}
 
