@@ -76,6 +76,7 @@ export default function LuckyCast() {
       {(() => {
         if (!gameNumberRef.current) {
           isRollRef.current = false;
+          buttonRef.current.focus();
          return <Confetti />
         }
       })()}
