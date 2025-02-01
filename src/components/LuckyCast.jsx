@@ -13,7 +13,7 @@ export default function LuckyCast() {
 
   const gameNumberRef = useRef(10);
   const isRollRef = useRef(true);
-
+  const buttonRef = useRef(null);
 
   function diceNumber() {
     return Math.ceil(Math.random() * 6);
@@ -90,7 +90,7 @@ export default function LuckyCast() {
       <div className="luckycast">
         {Dice}
       </div>
-      <button onClick={onRoll} className="rollGame">{ isRollRef.current ? "Roll" : "New Game" }</button>
+      <button ref={buttonRef} onClick={onRoll} className="rollGame">{ isRollRef.current ? "Roll" : "New Game" }</button>
     </div>
   );
 }
