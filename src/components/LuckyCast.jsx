@@ -7,12 +7,12 @@ import "../styles/luckycast.css";
 
 export default function LuckyCast() {
 
-  const [ isRoll, setIsRoll ] = useState(true);
-
   // This holds the value of the first freeze button.
   // It can only be changed by starting new game.
   const freezeRef = useRef(null);
+
   const gameNumberRef = useRef(10);
+  const isRollRef = useRef(true);
 
 
   function diceNumber() {
@@ -73,7 +73,12 @@ export default function LuckyCast() {
 
   return (
     <div className="luckycastcontainer">
-      {!gameNumberRef.current ? <Confetti /> : null}
+      {(() => {
+        if (!gameNumberRef.current) {
+          isRollRef.current = false;
+         return <Confetti />
+        }
+      })()}
       <div className="messagecontainer">
         <p>LuckyCast</p>
         <p className="narration">
@@ -85,7 +90,7 @@ export default function LuckyCast() {
       <div className="luckycast">
         {Dice}
       </div>
-      <button onClick={onRoll} className="rollGame">{ isRoll ? "Roll" : "New Game" }</button>
+      <button onClick={onRoll} className="rollGame">{ isRollRef.current ? "Roll" : "New Game" }</button>
     </div>
   );
 }
