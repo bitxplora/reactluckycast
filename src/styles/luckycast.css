@@ -26,3 +26,7 @@
   font-weight: 600;
   margin-bottom: 2px;
 }
+
+:focus {
+  outline: 1px solid red;
+}
