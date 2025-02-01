@@ -11,7 +11,6 @@ export default function LuckyCast() {
   // It can only be changed by starting new game.
   const freezeRef = useRef(null);
 
-  const gameNumberRef = useRef(10);
   const isRollRef = useRef(true);
   const buttonRef = useRef(null);
 
@@ -31,9 +30,13 @@ export default function LuckyCast() {
 
   const [ diceData, setDiceData ] = useState(dataFactory());
 
+  // This holds the total number of dice which is used to track when the game is won.
+  const gameNumberRef = useRef(diceData.length);
+
   const Dice = Array.from(diceData, (data) => {
     return <Die key={data.id} id={data.id} value={data.value} isFreezed={data.isFreezed} freeze={freeze} />
   })
+
 
   function onRoll() {
     let newDiceData = diceData.map((newData) => {
