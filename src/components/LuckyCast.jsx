@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { nanoid } from "nanoid";
+import  Confetti  from "react-confetti";
 
 import Die from "./Die";
 import "../styles/luckycast.css";
@@ -11,6 +12,8 @@ export default function LuckyCast() {
   // This holds the value of the first freeze button.
   // It can only be changed by starting new game.
   const freezeRef = useRef(null);
+  const gameNumberRef = useRef(10);
+
 
   function diceNumber() {
     return Math.ceil(Math.random() * 6);
@@ -56,6 +59,7 @@ export default function LuckyCast() {
     let freezedData = diceData.map((data) => {
       if (data.id === id && data.isFreezed === false) {
         if (freezeCheck(data.value)) {
+          gameNumberRef.current = gameNumberRef.current - 1;
           return { ...data, isFreezed: true }
         } else {
           return data;
@@ -69,6 +73,7 @@ export default function LuckyCast() {
 
   return (
     <div className="luckycastcontainer">
+      {!gameNumberRef.current ? <Confetti /> : null}
       <div className="messagecontainer">
         <p>LuckyCast</p>
         <p className="narration">
