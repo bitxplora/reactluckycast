@@ -30,7 +30,7 @@ export default function LuckyCast() {
     })
   }
 
-  const [ diceData, setDiceData ] = useState(dataFactory());
+  const [ diceData, setDiceData ] = useState(() => dataFactory());
 
   // This holds the total number of dice which is used to track when the game is won.
   const gameNumberRef = useRef(diceData.length);
@@ -58,7 +58,7 @@ export default function LuckyCast() {
       isConfetti.current = false;
       freezeRef.current = null;
       gameNumberRef.current = diceData.length;
-      setDiceData(dataFactory());
+      setDiceData(() => dataFactory());
     }
   }
 
