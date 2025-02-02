@@ -54,11 +54,11 @@ export default function LuckyCast() {
       });
         setDiceData(newDiceData);
     } else if (buttonRef.current.innerText === "New Game") {
+      setDiceData(() => dataFactory());
       isRollRef.current = true;
       isConfetti.current = false;
       freezeRef.current = null;
       gameNumberRef.current = diceData.length;
-      setDiceData(() => dataFactory());
     }
   }
 
@@ -102,15 +102,21 @@ export default function LuckyCast() {
       <div className="messagecontainer">
         <p>LuckyCast</p>
         <p className="narration">
-           Choose a number and click on the dice that show that value to freeze it.
-           Then roll and freeze until all the dice show the same number.
-           Click each die to freeze it at its current value between rolls.
+          Choose a number and click on the dice that show that value to freeze it.
+          Then roll and freeze until all the dice show the same number.
+          Click each die to freeze it at its current value between rolls.
         </p>
       </div>
       <div className="luckycast">
         {Dice}
       </div>
-      <button ref={buttonRef} onClick={onRoll} className="rollGame"> { isRollRef.current ? "Roll" : "New Game" } </button>
+      <button
+          ref={buttonRef}
+          onClick={onRoll}
+          className="rollGame"
+        >
+          { isRollRef.current ? "Roll" : "New Game" }
+      </button>
     </div>
   );
 }
