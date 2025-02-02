@@ -45,8 +45,6 @@ export default function LuckyCast() {
       let newDiceData = diceData.map((newData) => {
         if (newData.isFreezed) {
           if (freezeRef.current === null) {
-            // isConfetti.current = true;
-            // isRollRef.current = false;
             return { ...newData }
           }
           return { ...newData }
@@ -63,18 +61,6 @@ export default function LuckyCast() {
       setDiceData(dataFactory());
     }
   }
-
-  // function onRoll() {
-  //   console.log(buttonRef.current.innerText);
-  //   let newDiceData = diceData.map((newData) => {
-  //     if (newData.isFreezed) {
-  //       return { ...newData }
-  //     } else {
-  //       return { ...newData, id: nanoid(), value: diceNumber()  }
-  //     }
-  //   });
-  //   setDiceData(newDiceData);
-  // }
 
   function freezeCheck(value) {
     if (freezeRef.current === null) {
@@ -104,25 +90,6 @@ export default function LuckyCast() {
     });
     setDiceData(freezedData);
   }
-
-  // function gameWon() {
-  //   if (!gameNumberRef.current) {
-  //     isRollRef.current = false;
-  //     buttonRef.current.focus();
-  //     isConfetti = true;
-  //     return true;
-  //   }
-  //   isConfetti = false;
-  //   return false;
-  // }
-  //
-      // {(() => {
-      //   if (!gameNumberRef.current) {
-      //     isRollRef.current = false;
-      //     buttonRef.current.focus();
-      //    return <Confetti run={isConfetti} />
-      //   }
-      // })()}
 
   return (
     <div className="luckycastcontainer">
