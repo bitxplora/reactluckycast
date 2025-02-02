@@ -13,7 +13,6 @@ export default function LuckyCast() {
 
   const isRollRef = useRef(true);
   const buttonRef = useRef(null);
-
   const isConfetti = useRef(false);
 
   function diceNumber() {
