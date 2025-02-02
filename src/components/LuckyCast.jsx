@@ -14,6 +14,8 @@ export default function LuckyCast() {
   const isRollRef = useRef(true);
   const buttonRef = useRef(null);
 
+  const isConfetti = useRef(false);
+
   function diceNumber() {
     return Math.ceil(Math.random() * 6);
   }
@@ -39,15 +41,40 @@ export default function LuckyCast() {
 
 
   function onRoll() {
-    let newDiceData = diceData.map((newData) => {
-      if (newData.isFreezed) {
-        return { ...newData }
-      } else {
-        return { ...newData, id: nanoid(), value: diceNumber()  }
-      }
-    });
-    setDiceData(newDiceData);
+    if (buttonRef.current.innerText === "Roll") {
+      let newDiceData = diceData.map((newData) => {
+        if (newData.isFreezed) {
+          if (freezeRef.current === null) {
+            // isConfetti.current = true;
+            // isRollRef.current = false;
+            return { ...newData }
+          }
+          return { ...newData }
+        } else {
+          return { ...newData, id: nanoid(), value: diceNumber()  }
+        }
+      });
+        setDiceData(newDiceData);
+    } else if (buttonRef.current.innerText === "New Game") {
+      isRollRef.current = true;
+      isConfetti.current = false;
+      freezeRef.current = null;
+      gameNumberRef.current = diceData.length;
+      setDiceData(dataFactory());
+    }
   }
+
+  // function onRoll() {
+  //   console.log(buttonRef.current.innerText);
+  //   let newDiceData = diceData.map((newData) => {
+  //     if (newData.isFreezed) {
+  //       return { ...newData }
+  //     } else {
+  //       return { ...newData, id: nanoid(), value: diceNumber()  }
+  //     }
+  //   });
+  //   setDiceData(newDiceData);
+  // }
 
   function freezeCheck(value) {
     if (freezeRef.current === null) {
@@ -63,6 +90,10 @@ export default function LuckyCast() {
       if (data.id === id && data.isFreezed === false) {
         if (freezeCheck(data.value)) {
           gameNumberRef.current = gameNumberRef.current - 1;
+          if (gameNumberRef.current === 0) {
+            isRollRef.current = false;
+            isConfetti.current = true;
+          }
           return { ...data, isFreezed: true }
         } else {
           return data;
@@ -74,13 +105,31 @@ export default function LuckyCast() {
     setDiceData(freezedData);
   }
 
+  // function gameWon() {
+  //   if (!gameNumberRef.current) {
+  //     isRollRef.current = false;
+  //     buttonRef.current.focus();
+  //     isConfetti = true;
+  //     return true;
+  //   }
+  //   isConfetti = false;
+  //   return false;
+  // }
+  //
+      // {(() => {
+      //   if (!gameNumberRef.current) {
+      //     isRollRef.current = false;
+      //     buttonRef.current.focus();
+      //    return <Confetti run={isConfetti} />
+      //   }
+      // })()}
+
   return (
     <div className="luckycastcontainer">
       {(() => {
-        if (!gameNumberRef.current) {
-          isRollRef.current = false;
+        if (gameNumberRef.current === 0) {
           buttonRef.current.focus();
-         return <Confetti />
+          return <Confetti run={isConfetti} />
         }
       })()}
       <div className="messagecontainer">
@@ -94,7 +143,7 @@ export default function LuckyCast() {
       <div className="luckycast">
         {Dice}
       </div>
-      <button ref={buttonRef} onClick={onRoll} className="rollGame">{ isRollRef.current ? "Roll" : "New Game" }</button>
+      <button ref={buttonRef} onClick={onRoll} className="rollGame"> { isRollRef.current ? "Roll" : "New Game" } </button>
     </div>
   );
 }
