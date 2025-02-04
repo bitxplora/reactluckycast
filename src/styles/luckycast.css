@@ -1,3 +1,8 @@
+@font-face {
+  font-family: dinasty;
+  src: url('/src/fonts/DinastyPersonalUseBold-rgqzA.ttf') format('truetype');
+}
+
 .luckycastcontainer {
   width: 300px;
   display: grid;
@@ -21,9 +26,11 @@
 }
 
 .messagecontainer p:first-child {
-  font-size:  46px;
-  letter-spacing: 2px;
-  font-weight: 600;
+  font-family: dinasty;
+  font-size:  40px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: #800040;
   margin-bottom: 2px;
 }
 
