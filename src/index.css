@@ -25,18 +25,18 @@
 }
 
 @keyframes rotateDieLeft {
-  to { transform: rotate(-10turn); }
+  to { transform: rotate(-15turn); }
 }
 
 @keyframes rotateDieRight {
-  to { transform: rotate(10turn); }
+  to { transform: rotate(15turn); }
 }
 
 .dice-1 {
   display: flex;
   place-content: center;
   align-items: center;
-  animation: rotateDieLeft 4s ease-in-out;
+  animation: rotateDieLeft 4s ease-out;
 }
 
 .dice-2 {
