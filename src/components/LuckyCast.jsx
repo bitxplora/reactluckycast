@@ -90,14 +90,24 @@ export default function LuckyCast() {
     setDiceData(freezedData);
   }
 
+  function WonConfetti() {
+    if (gameNumberRef.current === 0) {
+      buttonRef.current.focus();
+      return <Confetti run={isConfetti} />
+    }
+  }
+
+      // {(() => {
+      //   if (gameNumberRef.current === 0) {
+      //     buttonRef.current.focus();
+      //     return <Confetti run={isConfetti} />
+      //   }
+      // })()}
+
+
   return (
     <div className="luckycastcontainer">
-      {(() => {
-        if (gameNumberRef.current === 0) {
-          buttonRef.current.focus();
-          return <Confetti run={isConfetti} />
-        }
-      })()}
+      <WonConfetti />
       <div className="messagecontainer">
         <p>LuckyCast</p>
         <p className="narration">
