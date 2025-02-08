@@ -97,14 +97,6 @@ export default function LuckyCast() {
     }
   }
 
-      // {(() => {
-      //   if (gameNumberRef.current === 0) {
-      //     buttonRef.current.focus();
-      //     return <Confetti run={isConfetti} />
-      //   }
-      // })()}
-
-
   return (
     <div className="luckycastcontainer">
       <WonConfetti />
