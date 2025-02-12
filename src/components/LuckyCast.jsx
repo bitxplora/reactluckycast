@@ -5,6 +5,13 @@ import  Confetti  from "react-confetti";
 import Die from "./Die";
 import "../styles/luckycast.css";
 
+function WinConfetti(props) {
+  if (props.gameNumberRefCurrent == 0) {
+    props.buttonRefCurrent.focus();
+    return <Confetti run={props.isConfetti} />
+  }
+}
+
 export default function LuckyCast() {
 
   // This holds the value of the first freeze button.
@@ -99,7 +106,6 @@ export default function LuckyCast() {
 
   return (
     <div className="luckycastcontainer">
-      {winConfetti()}
       <div className="messagecontainer">
         <p>LuckyCast</p>
         <p className="narration">
