@@ -106,6 +106,11 @@ export default function LuckyCast() {
 
   return (
     <div className="luckycastcontainer">
+      <WinConfetti
+        gameNumberRefCurrent={gameNumberRef.current}
+        buttonRefCurrent={buttonRef.current}
+        isConfetti={isConfetti}
+      />
       <div className="messagecontainer">
         <p>LuckyCast</p>
         <p className="narration">
